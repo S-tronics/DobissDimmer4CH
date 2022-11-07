@@ -1,0 +1,32 @@
+
+
+SYS_OSC_CLOCK = 20 MHz
+
+fOSC/4 = 5 MHz
+Period = 0,0000002
+
+
+Timingdiagram
+=============
+
+Timer 4 ==> 10ms
+----------------
+
+Init:
+
+	T4CON = 0xFF;                               // Postscaler=16, Prescaler=16, TMR4 ON
+    IPR4bits.TMR4IP = 0;                        // LOW priority
+    PIE4bits.TMR4IE = 1;                        // enable Timer4 INT
+    PR4 = 0xC3;									// 195
+
+200ns * 16 * 16 = 51200ns
+
+Postscaler after Comparator and generates IF-flag for Timer4.
+
+51.2µs * 195 = 9948µs ==> 9.95ms
+
+Timer 1 ==> 1s
+--------------
+
+Wordt via de library ingesteld.
+

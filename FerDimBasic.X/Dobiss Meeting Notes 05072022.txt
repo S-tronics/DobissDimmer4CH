@@ -1,0 +1,62 @@
+dim.all mag opnieuw de naam module krijgen voor generieke code. OK
+
+Purp = general purpose OK
+
+cmd: commando voor ieder kanaal en een commando die op de CAN-bus gestuurd wordt. OK
+
+rtc: real time count teller (acties voor een aantal seconden) OK
+
+rtc.c code integreren?		OK
+
+DS2484 wijzigen naar 1 kanaal omdat nu altijd maar 1 kanaal zal overblijven
+op de dimmer.
+
+DIMrunning voor 1 kanaal of de CAN-bus
+
+unsigned char processedButtons[2][5][12];           // store processed buttons for each channel
+De index van 2 channels mag verwijderd worden.
+
+dim.version = 107 verplaatsen naar AppConfig.h
+
+dim.type = 0x10 ook naar AppConfig verschuiven.
+nieuw type bepalen. Wijzigen naar 0x11.
+
+time2function wordt ingesteld op 2 seconden om een init te doen 
+
+vMAX			0 - 100 
+dim_ch[i].step = (dim_ch[i].vMax - dim_ch[i].vMin) / 10;   // Calculate the steps for 1%
+Om een stapgrootte van 10 te hebben binnen een totaal van 1000 stappen.
+
+syncOutput: 2 uitgangen parallel met elkaar te sturen. 
+
+StdTaskStart(eepromtask);
+while(StdTaskIsTaskRunning(eepromtask)) {};
+Mag weggelaten worden omdat in eeprom al gepolld wordt naar de ACK van de I2C-data.
+
+Intesis.  Suntronics - Mitsubishi? API
+
+Recursieve functies opslaan in queue en in achtergrond afhandelen.
+Scenario --> Acties uitlezen bij een zeker scenario
+Actie --> Acties rechtstreeks uitvoeren.
+
+Logica van de CAN-bus ==> ReceiveCheck nog toevoegen.
+
+void AppCanWriteConfigFromCan(LOC loc) 
+void AppCanReadDataToCan(LOC loc)
+zouden kunnen samengevoegd worden maar antwoorden met 0x11 i.p.v. 0x06
+
+StdDS2485 
+
+ProgButton, testlongpush laten wegvallen
+
+Timer4 wordt ook gebruikt om de timing te doen van het lang drukken
+van een button.
+
+De logica van de CAN-bus integreren
+
+AppDimmerTest mag weggelaten worden.  OK
+
+sunricher
+
+Toevoegen check op de familycode in de resultlus.
+
