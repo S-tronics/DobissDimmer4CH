@@ -46,10 +46,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "..\..\System\PIC18F2X\SysLibAll.h"
+#include "..\..\System\PIC18F66K80\SysLibAll.h"
 
 //DRIVER lib include section
-#include "..\..\Driver\PIC18F2X\DrvTimerTick.h"
+#include "..\..\Driver\PIC18F66K80\DrvTimerTick.h"
 
 //STANDARD lib include section
 #include "StdTask.h"

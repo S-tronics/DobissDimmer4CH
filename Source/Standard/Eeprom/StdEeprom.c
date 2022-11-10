@@ -36,8 +36,8 @@
 ; I N C L U D E S
 ;---------------------------------------------------------------------------------------------------------------------*/
 //#include <stdio.h>
-#include "..\..\System\PIC18F2X\SysLibAll.h"
-#include "..\..\Driver\PIC18F2X\DrvEeprom.h"
+#include "..\..\System\PIC18F66K80\SysLibAll.h"
+#include "..\..\Driver\PIC18F66K80\DrvEeprom.h"
 
 #include "StdEeprom.h"
 /**********************************************************************************************************************/

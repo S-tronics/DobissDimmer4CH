@@ -44,10 +44,10 @@
       <itemPath>../Source/Standard/I2C/StdDS2485.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f2" displayName="System" projectFiles="true">
-      <itemPath>../Source/System/PIC18F66K80/SysLibAll.h</itemPath>
       <itemPath>../Source/System/PIC18F66K80/SysTypes.h</itemPath>
       <itemPath>../Source/System/PIC18F66K80/System.c</itemPath>
       <itemPath>../Source/System/PIC18F66K80/System.h</itemPath>
+      <itemPath>../Source/System/PIC18F66K80/SysLibAll.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
