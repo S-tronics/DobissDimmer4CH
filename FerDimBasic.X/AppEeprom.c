@@ -165,15 +165,6 @@ void AppEepromreadMem(void)
         address += 0x0040;
         if((address & 0x00FF) == 0x0000) address += 0x0100;
     }
-    
-    //writeSlaveSPI(0x02, DIM_CH[0].loadType, DIM_CH[1].loadType, DIM_CH[2].loadType, DIM_CH[3].loadType);              // Send values via SPI to the slave PIC18F25k80
-    AppZCDConfig(0, dim_ch[0].ph, 0);
-    AppZCDConfig(1, dim_ch[1].ph, 0);
-    AppZCDConfig(2, dim_ch[2].ph, 0);
-    AppZCDConfig(3, dim_ch[3].ph, 0);
-    AppLEDControl(BUZZY, FALSE, RED);               // Buzzy led UIT
-
-    DrvCanInit(module.address);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 

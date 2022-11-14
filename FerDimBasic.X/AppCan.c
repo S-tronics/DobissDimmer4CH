@@ -420,7 +420,7 @@ void AppCanReceiveCheck(APPCAN_MESSAGE* appmsg)
             }
             break;
         case 0x02:	
-            if (appmsg->data[0] == SCENARIOSADDR && appmsg->data[Action_DelayOn] == 0xFF)
+            if (appmsg->data[0] == SCENARIOSADDR && appmsg->data[ACT_DELAYON] == 0xFF)
             {
                 // A scenario CAN command
                 //AppScenarioExecute(appmsg->data[1]);
@@ -510,7 +510,6 @@ void AppCanReceiveCheck(APPCAN_MESSAGE* appmsg)
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------*/
 
 /**********************************************************************************************************************/
 
@@ -524,6 +523,8 @@ void AppCanInit(void)
 	cantask = StdTaskRegisterTask(200, AppCanTimerTask, NULL, 127);
     
     DrvGpioInitPin(PORT_D, 6, PIN_IO_FUNC_OUTPUT_LOW);
+    
+    DrvCanInit(module.address);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 void AppCanSendStatusUpdate(unsigned char output, unsigned char value)

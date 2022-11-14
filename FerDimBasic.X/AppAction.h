@@ -39,7 +39,7 @@
 /***********************************************************************************************************************
 ; E X P O R T E D   T Y P E D E F S
 ;---------------------------------------------------------------------------------------------------------------------*/
-enum { Action_Address, Action_Channel, Action_Action, Action_DelayOn, Action_DelayOff, Action_Option1, Action_Option2, Action_Condition };
+enum { ACT_ADDRESS, ACT_CHANNEL, ACT_ACTION, ACT_DELAYON, ACT_DELAYOFF, ACT_OPT1, ACT_OPT2, ACT_CONDITION};
 
 typedef struct
 {

@@ -306,7 +306,6 @@ void AppDimmerUpdate(void)
     AppZCDConfig(3, dim_ch[3].ph, dim_ch[3].realValue);
     
     if (!module.intBlock) INTCONbits.GIEL = 1;	// Global Interrupt bit
-    //I2C_ByteWrite(0x4E, 0x0A, module.led.all);                                                             // Set led info
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 

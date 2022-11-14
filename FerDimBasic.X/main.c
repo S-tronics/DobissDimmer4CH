@@ -141,24 +141,24 @@ static void AppMainInitAllObjects()
     DrvGpioInit();
     DrvI2CInit();
     DrvCCPInit();
-    DrvCanInit(2);          //Address set temporary to 2
-    AppIrqInit();
-    
+
     DrvTimerTickInit(100);
     DrvTimerInit(100);  
     StdTaskInit(100);
-    heartbeat =  StdTaskRegisterTask(1000000, (TASK_CALLBACK_FUNC)AppMainHeartbeatTask, NULL, 120);             //1 seconds timer (by interrupt)
+    heartbeat =  StdTaskRegisterTask(1000000, (TASK_CALLBACK_FUNC)AppMainHeartbeatTask, NULL, 130);             //1 seconds timer (by interrupt)
     StdTaskStart(heartbeat);
     Std24LC512TInit();
     StdDS2484Init();
     StdDS2484DeviceReset();
+
     AppEepromInit();
-    AppServiceInit();
-    AppCanInit();
+    AppServiceInit();    
     AppZCDInit();
     AppLEDInit();
     AppButtonInit();
     AppDimmerInit();
+    AppIrqInit();
+    AppCanInit();
 }
 
 /**********************************************************************************************************************/
@@ -175,13 +175,11 @@ static void AppMainBackGroundLoop(void)
         AppCanHandler();
         inter.scan = 0;
     }
-    //DrvCanRxISR();
     
     StdTaskHandler();
 //    AppScenarioHandler();
-//    AppActionHandler();
-    //AppZCDHandler();
-    
+    AppActionHandler();
+    AppZCDHandler();
 }
 /**********************************************************************************************************************/
 static void AppMainHeartbeatTask(void)

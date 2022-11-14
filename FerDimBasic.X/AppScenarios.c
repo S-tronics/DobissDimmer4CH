@@ -106,14 +106,14 @@ void AppScenarioExecute(unsigned char id)
         else
         {
             // Execute action    
-            if (data[Action_Address] == module.address && data[Action_Channel] < NBROFCHANNELS)
+            if (data[ACT_ADDRESS] == module.address && data[ACT_CHANNEL] < NBROFCHANNELS)
             {
                 AppActionProcess(data);
                 StdTaskSetPeriod(scenariostask, 10000);
                 StdTaskStart(scenariostask);
                 while(StdTaskIsTaskRunning(scenariostask)) {}
             }
-            if (module.master && data[Action_Address] == SCENARIOSADDR) 
+            if (module.master && data[ACT_ADDRESS] == SCENARIOSADDR) 
             {
                 StdTaskSetPeriod(scenariostask, 30000);
                 StdTaskStart(scenariostask);

@@ -78,6 +78,7 @@ void AppLEDInit(void)
 //    DrvGpioInitPin(PORT_D, 5, PIN_IO_FUNC_OUTPUT_LOW);          //CH1_Red
 //    DrvGpioInitPin(PORT_D, 6, PIN_IO_FUNC_OUTPUT_LOW);          //CH2_Green
 //    DrvGpioInitPin(PORT_D, 7, PIN_IO_FUNC_OUTPUT_LOW);          //CH2_Red 
+    AppLEDControl(BUZZY, FALSE, RED);               // Buzzy led UIT
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 void AppLEDControl(APPLED_TYPE type, bool onoff, APPLED_COLOR color)

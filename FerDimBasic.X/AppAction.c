@@ -41,15 +41,13 @@
 /***********************************************************************************************************************
 ; L O C A L   F U N C T I O N   P R O T O T Y P E S
 ;---------------------------------------------------------------------------------------------------------------------*/
-void AppActionSetOn(unsigned char o);
-void AppActionSetOff(unsigned char o);
-void AppActionSetDelayOff (unsigned char o);
-void AppActionSetDelayOn (unsigned char o);
-void AppActionsetRTCTimer(unsigned char channel, unsigned char delay, unsigned char minutes);
-void AppActionCheckActionOn(unsigned char output);
-void AppActionCheckActionOff(unsigned char output);
-void AppActionStopDimming(unsigned char output);
-unsigned char AppActionProcentOfValue(unsigned char channel, unsigned char procent);
+static void AppActionSetDelayOff (unsigned char o);
+static void AppActionSetDelayOn (unsigned char o);
+static void AppActionsetRTCTimer(unsigned char channel, unsigned char delay, unsigned char minutes);
+static void AppActionCheckActionOn(unsigned char output);
+static void AppActionCheckActionOff(unsigned char output);
+static void AppActionStopDimming(unsigned char output);
+static unsigned char AppActionProcentOfValue(unsigned char channel, unsigned char procent);
 /**********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -75,7 +73,7 @@ static bool             appactionfull = false;
 /***********************************************************************************************************************
 ; L O C A L   F U N C T I O N S
 ;---------------------------------------------------------------------------------------------------------------------*/
-void AppActionSetDelayOff(unsigned char o)
+static void AppActionSetDelayOff(unsigned char o)
 {    
     if (dim_ch[o].pulse.all != 0xFF)                
     {
@@ -88,12 +86,12 @@ void AppActionSetDelayOff(unsigned char o)
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppActionSetDelayOn(unsigned char o)
+static void AppActionSetDelayOn(unsigned char o)
 {
     AppActionsetRTCTimer(o, cmd[o].action.delayOn.delay, cmd[o].action.delayOn.type);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppActionsetRTCTimer(unsigned char channel, unsigned char delay, unsigned char minutes)
+static void AppActionsetRTCTimer(unsigned char channel, unsigned char delay, unsigned char minutes)
 {
     if (minutes && delay <= 2)
     {
@@ -126,7 +124,7 @@ void AppActionsetRTCTimer(unsigned char channel, unsigned char delay, unsigned c
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppActionCheckActionOff(unsigned char output) 
+static void AppActionCheckActionOff(unsigned char output) 
 {   
     unsigned char i, data[16];
     if (dim_ch[output].offAction.address == module.address && dim_ch[output].offAction.channel == output && dim_ch[output].offAction.actionid == 0x01 && dim_ch[output].offAction.delayOn.all == 0xFF) {
@@ -147,7 +145,7 @@ void AppActionCheckActionOff(unsigned char output)
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppActionCheckActionOn(unsigned char output) 
+static void AppActionCheckActionOn(unsigned char output) 
 {
     unsigned char i, data[16];
     if (cmd[output].action.delayOff.all != 0xFF && dim_ch[output].onAction.address == module.address && dim_ch[output].onAction.channel == output && dim_ch[output].onAction.actionid == 0x00) {
@@ -172,7 +170,7 @@ void AppActionCheckActionOn(unsigned char output)
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppActionStopDimming(unsigned char output)
+static void AppActionStopDimming(unsigned char output)
 {
     // Make sure manual dimming from either which channel is stopped
     DIMrunning[0][output] = 0;
@@ -180,7 +178,7 @@ void AppActionStopDimming(unsigned char output)
     DIMrunning[2][output] = 0;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-unsigned char AppActionProcentOfValue(unsigned char channel, unsigned char procent)
+static unsigned char AppActionProcentOfValue(unsigned char channel, unsigned char procent)
 {
     unsigned int value;
 
@@ -212,9 +210,9 @@ void AppActionProcess(char *action)
     unsigned char i, o, data[8];
     static CMD_INDEX index;
     // Set correct channel
-    if (action[Action_Address] == module.address)
+    if (action[ACT_ADDRESS] == module.address)
     {
-        o = action[Action_Channel];
+        o = action[ACT_CHANNEL];
     }
     else 
     {
@@ -308,7 +306,7 @@ void AppActionProcess(char *action)
 /*--------------------------------------------------------------------------------------------------------------------*/
 bool AppActionFillQueue(CMD_INDEX* index)
 {
-    char diff = 0;
+    signed char diff = 0;
     
     if(appactionfull == true)
     {

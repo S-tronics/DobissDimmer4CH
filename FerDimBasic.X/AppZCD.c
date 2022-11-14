@@ -59,7 +59,7 @@ typedef enum
 /***********************************************************************************************************************
 ; L O C A L   F U N C T I O N   P R O T O T Y P E S
 ;---------------------------------------------------------------------------------------------------------------------*/
-
+static void AppZCDFlywheelStartup(void);
 /**********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -94,7 +94,7 @@ static DRVCCP_CH_HNDL   hndl_ch3 = 3;
 /***********************************************************************************************************************
 ; L O C A L   F U N C T I O N S
 ;---------------------------------------------------------------------------------------------------------------------*/
-void AppZCDFlywheelStartup(void)
+static void AppZCDFlywheelStartup(void)
 {
     static ZCD_STARTUP startupstate = UNKNOWN;
     
@@ -186,7 +186,13 @@ void AppZCDInit(void)
         DrvGpioTogglePin(chptr->port_reset, chptr->pin_reset);
         DrvGpioTogglePin(chptr->port_reset, chptr->pin_reset);
     }
+    AppZCDConfig(0, dim_ch[0].ph, 0);
+    AppZCDConfig(1, dim_ch[1].ph, 0);
+    AppZCDConfig(2, dim_ch[2].ph, 0);
+    AppZCDConfig(3, dim_ch[3].ph, 0);
     
+    AppZCDChannelEnable(0, true);
+    AppZCDChannelEnable(1, true);
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -273,7 +279,6 @@ void AppZCDHandler(void)
         }
         else    ch->overtemperature = false;
     }
-    
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 bool AppZCDGetConfigurated(void)
@@ -332,7 +337,6 @@ void AppZCDTimer(void)
             {
                 if(dim_ch[i].en)
                 {
-                    
                     if(dim_ch[i].ph == LEADING)        DrvCCPStart(dim_ch[i].ch, CCP_ACTIVE_H);
                     else if(dim_ch[i].ph == TRAILING)  DrvCCPStart(dim_ch[i].ch, CCP_ACTIVE_L);
                 }

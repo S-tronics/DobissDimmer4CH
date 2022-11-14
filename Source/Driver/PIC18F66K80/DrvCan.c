@@ -50,7 +50,7 @@
 #define DRVCAN_RXM0_VAL     0x01FCFF00
 #define DRVCAN_RXM1_VAL     0x01FCFF00
 
-#define DRVCAN_RX_QUEUE_LENGTH  60
+#define DRVCAN_RX_QUEUE_LENGTH  30
 #define DRVCAN_TX_QUEUE_LENGTH  3
 /**********************************************************************************************************************/
 
