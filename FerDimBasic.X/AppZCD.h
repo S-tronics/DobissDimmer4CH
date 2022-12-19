@@ -114,7 +114,7 @@ void AppZCDChannelEnable(unsigned char index, bool en);
  * @param   value:  number of steps (max 1000) or a percentage in 1/10 of a percent.
  * 
  */
-void AppZCDConfig(unsigned char index, PH_CTRL ph, unsigned int value);
+void AppZCDConfig(unsigned char index, unsigned char ph, unsigned int value);
 
 /**
  * @brief   This function returns the configuration state.

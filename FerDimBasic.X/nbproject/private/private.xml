@@ -3,13 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppSfeer.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvEeprom.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Standard/Eeprom/StdEeprom.c</file>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvGpio.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvEeprom.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvGpio.h</file>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppRTC.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppCan.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppCan.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppZCD.c</file>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppLed.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppLed.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppAction.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppIrq.c</file>
@@ -19,11 +23,13 @@
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvTimerTick.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvI2C.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppConfig.h</file>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/nbproject/Makefile-default.mk</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/main.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppDimmer.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppButton.c</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Driver/PIC18F66K80/DrvI2C.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppEeprom.c</file>
+            <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppButton.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppDimmer.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/FerDimBasic.X/AppAction.h</file>
             <file>file:/D:/S-tronics/Projecten/Fermax/Software/FERDIMBASIC/Source/Standard/I2C/StdDS2484.c</file>

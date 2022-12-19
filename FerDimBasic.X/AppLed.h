@@ -53,8 +53,8 @@ APPLED_TYPE;
 
 typedef enum
 {
-    GREEN,
-    RED
+    GREEN = 0,
+    RED = 1
 }
 APPLED_COLOR;
 
@@ -62,7 +62,7 @@ typedef struct
 {
     APPLED_TYPE type;
     APPLED_COLOR color;
-    bool onoff;
+    unsigned char onoff;
 }APPLED;
 /**********************************************************************************************************************/
 

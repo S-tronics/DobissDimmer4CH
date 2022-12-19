@@ -301,9 +301,11 @@ void AppDimmerUpdate(void)
     INTCONbits.GIEL = 0;				// Global Interrupt bit
     
     AppZCDConfig(0, dim_ch[0].ph, dim_ch[0].realValue);
+    //AppZCDConfig(0, 0, dim_ch[0].realValue);
     AppZCDConfig(1, dim_ch[1].ph, dim_ch[1].realValue);
     AppZCDConfig(2, dim_ch[2].ph, dim_ch[2].realValue);
     AppZCDConfig(3, dim_ch[3].ph, dim_ch[3].realValue);
+//    AppZCDConfig(0, 0, 500);
     
     if (!module.intBlock) INTCONbits.GIEL = 1;	// Global Interrupt bit
 }

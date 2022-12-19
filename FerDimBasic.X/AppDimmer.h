@@ -144,57 +144,57 @@ MODULE;
 MODULE module;
 
 typedef union {
-    unsigned char all[83];
+    unsigned char all[97];
     struct {
         // 64 bytes from EEPROM
-        ACTION onAction;
-        ACTION offAction;
-        DELAY pulse;
-        unsigned char lock1;
-        unsigned char lock2;
-        unsigned char res[13];  
+        ACTION onAction;                        //8 bytes
+        ACTION offAction;                       //8 bytes
+        DELAY pulse;                            //1 byte
+        unsigned char lock1;                    //1 byte
+        unsigned char lock2;                    //1 byte
+        unsigned char res[13];                  //13 byte 32
         //unsigned char loadType;
-        unsigned char ph;
-        unsigned char tStart;
-        unsigned char tUp1;
-        unsigned char tUp0;
-        unsigned char tJump;
-        unsigned char tDown1;
-        unsigned char tDown0;
-        unsigned char vJump;
-        unsigned char vStart;
-        unsigned char vMin;
-        unsigned char runSpeed;
-        unsigned char vMax;        
-        unsigned char syncOutput;
-        unsigned char res2[3];
+        unsigned char ph;                       //1 byte
+        unsigned char tStart;                   //1 byte
+        unsigned char tUp1;                     //1 byte
+        unsigned char tUp0;                     //1 byte
+        unsigned char tJump;                    //1 byte
+        unsigned char tDown1;                   //1 byte
+        unsigned char tDown0;                   //1 byte
+        unsigned char vJump;                    //1 byte
+        unsigned char vStart;                   //1 byte
+        unsigned char vMin;                     //1 byte
+        unsigned char runSpeed;                 //1 byte
+        unsigned char vMax;                     //1 byte
+        unsigned char syncOutput;               //1 byte
+        unsigned char res2[3];                  //3 byte  48
         
         // other in RAM; Stored in RAM after reading out from eeprom
-        unsigned char ch;
-        bool en;
-        unsigned char actValue;         
-        unsigned int tUp;
-        unsigned int tUpdef;
-        unsigned int tDown;
-        unsigned int tDowndef;
-        unsigned char vJumpValue;
-        unsigned char moving;
-        unsigned int speed;
-        unsigned char starting;
-        unsigned char endValue;
-        unsigned int realValue;
-        unsigned char step;
-        unsigned char direction;
-        bool running;
-        APPLED led;
-        GPIO_PORT port_reset;
-        unsigned char pin_reset;
-        GPIO_PORT port_overtemperature;
-        unsigned char pin_overtemperature;
-        GPIO_PORT port_overcurrent;
-        unsigned char pin_overcurrent;
-        bool overtemperature;
-        bool overcurrent;
+        unsigned char ch;                       //1 byte
+        unsigned char en;                       //1 byte                     
+        unsigned char actValue;                 //1 byte
+        unsigned int tUp;                       //2 byte
+        unsigned int tUpdef;                    //2 byte 
+        unsigned int tDown;                     //2 byte
+        unsigned int tDowndef;                  //2 byte
+        unsigned char vJumpValue;               //1 byte
+        unsigned char moving;                   //1 byte
+        unsigned int speed;                     //2 byte
+        unsigned char starting;                 //1 byte
+        unsigned char endValue;                 //1 byte
+        unsigned int realValue;                 //2 byte
+        unsigned char step;                     //1 byte
+        unsigned char direction;                //1 byte
+        unsigned char running;                  //1 byte
+        APPLED led;                             //5 bytes
+        GPIO_PORT port_reset;                   //2 byte
+        unsigned char pin_reset;                //1 byte
+        GPIO_PORT port_overtemperature;         //2 byte
+        unsigned char pin_overtemperature;      //1 byte
+        GPIO_PORT port_overcurrent;             //2 byte
+        unsigned char pin_overcurrent;          //1 byte
+        unsigned char overtemperature;          //1 byte
+        unsigned char overcurrent;              //1 byte    86
     };
 }
 DIM_CH;

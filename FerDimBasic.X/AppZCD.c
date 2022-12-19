@@ -205,7 +205,7 @@ void AppZCDChannelEnable(unsigned char index, bool en)
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-void AppZCDConfig(unsigned char index, PH_CTRL ph, unsigned int value)
+void AppZCDConfig(unsigned char index, unsigned char ph, unsigned int value)
 {
     unsigned long     period;
     
